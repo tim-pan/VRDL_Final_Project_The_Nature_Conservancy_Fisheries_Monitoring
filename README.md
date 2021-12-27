@@ -15,39 +15,45 @@ To reproduct the testing prediction, please follow the steps below:
 - Google Colab
 
 ## Dataset
-- “Transfer_mask_To_json.ipynb” which can transfer mask image file to .json file. 
-- I transfer the file on google colab and save on the google drive , then download the json file to my computer to train the model.
-1. Download the dataset from https://drive.google.com/file/d/1nEJ7NTtHcCHNQqUXaoPk55VH3Uwh4QGG/view.
-2. Upload unzipped file "dataset.zip"、"Transfer_mat_To_csv.ipynb" to google drive in the same folder.
-3. Run the file "Transfer_mat_To_csv.ipynb" you will get a "annotations.json" file.
-4. Download the file "annotations.json".
-
+- Because of using pytorch to predict the image, imagefolder could be used to generate training and testing data.
+- Imagefolder needs the image be arranged in the folder according to their labels, so we need to classify the image with folders.
+1. Download the dataset from https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring.
+2. Set the download dataset's root according to your file path.
+3. Run the "split_train_val.py" file and we can get the "train_split" and "val_split" folder.
 
 
 ## Training
-- Download the dataset which is uploaded by me and put it in the same file with "VRDL_HW03.ipynb" and "annotations.json".
-- Run the files "VRDL_HW03.ipynb" will start to train the model and save it as "model_final.pth".
-- Remember to replace the root of the image file with your own root.
+Upload the "Main.ipynb"、"inference.ipynb"、"split_train_val.py"、"train_split"、"val_split" folder 、 "utils" folder which contains "dataset.py"、"function.py"、"split_train_val.py"、"ensemble" folder which contains "ensemble_experiment.ipynb" on google drive.
+Run the "Main.ipynb" file will start to train the model.
 
 The training parameters are:
 
-Model | learning rate | Training iterations | Batch size
+Model | learning rate | Training epochs | Batch size
 ------------------------ | ------------------------- | ------------------------- | -------------------------
-MaskRCNN_resnet101_fpn | 0.00025 | 100000 | 2
+efficientnet_b7 | 0.0001 | 40 | 8
 
-## Testing
-- "VRDL_HW03.ipynb" has the code that can use the model which is saved above to predict the testing images and save the prediction result as json files according to coco set rules.
+Model | learning rate | Training epochs | Batch size
+------------------------ | ------------------------- | ------------------------- | -------------------------
+inceptionv3 | 0.0001 | 25 | 8
+
+Model | learning rate | Training epochs | Batch size
+------------------------ | ------------------------- | ------------------------- | -------------------------
+regnet_y_32_gf | 0.0001 | 40 | 8
+
+Model | learning rate | Training epochs | Batch size
+------------------------ | ------------------------- | ------------------------- | -------------------------
+resnet152 | 0.0001 | 40 | 8
 
 ### Pretrained models
-Pretrained model "MaskRCNN_resnet101_fpn" which is provided by detectron2.
+Pretrained model "efficientnet_b7" which is provided by torchvision.
+Pretrained model "inceptionv3" which is provided by keras.
+Pretrained model "regnet_y_32_gf" which is provided by torchvision.
+Pretrained model "resnet152" which is provided by torchvision.
 
 ### Link of my trained model
-- The model which training with 100000 iterations：https://drive.google.com/file/d/14FpmiZiJ1SdBGayvGkJAg-5zSRXWL0jq/view?usp=sharing
-- The model's training json file :https://drive.google.com/file/d/1Gp5-SdGiGUjhDb22cIQgHC0VIneMSgXY/view?usp=sharing
+- The model which training with The_Nature_Conservancy_Fisheries_Monitoring dataset：https://drive.google.com/file/d/1DBKRTMACJHhJ8zhiXia6wutzxSNV_Lh0/view?usp=sharing
 
 ### Inference
-
 Load the trained model parameters without retraining again.
 
-“model_final.pth” need to be download to your own device and run “inference.ipynb” you will get the results as json file.
-“model_final.pth” need to be put in the folder ./output/ that contains “inference.ipynb”.
+“model.pth” need to be download to your own device and run “inference.ipynb” you will get the submission file.
