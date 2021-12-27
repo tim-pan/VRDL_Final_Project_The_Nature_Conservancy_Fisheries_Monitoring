@@ -34,15 +34,15 @@ efficientnet_b7 | 0.0001 | 40 | 8
 
 Model | learning rate | Training epochs | Batch size
 ----------------------------- | ------------------------- | ------------------------- | -------------------------
-inceptionv3 | 0.0001 | 25 | 8
+inceptionv3     | 0.0001 | 25 | 8
 
 Model | learning rate | Training epochs | Batch size
 ----------------------------- | ------------------------- | ------------------------- | -------------------------
-regnet_y_32_gf | 0.0001 | 40 | 8
+regnet_y_32_gf  | 0.0001 | 40 | 8
 
 Model | learning rate | Training epochs | Batch size
 ----------------------------- | ------------------------- | ------------------------- | -------------------------
-resnet152 | 0.0001 | 40 | 8
+resnet152       | 0.0001 | 40 | 8
 
 ### Pretrained models
 Pretrained model "efficientnet_b7" which is provided by torchvision.
