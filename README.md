@@ -6,7 +6,7 @@ The given training dataset includes 3777 images, each image contains a certain s
 
 ## Reproducing Submission
 To reproduct the testing prediction, please follow the steps below:
-1. [Jupyter Notebook environment](#environment)
+1. [Running environment](#environment)
 2. [Dataset](#dataset)
 3. [Training](#training)
 4. [Testing](#testing)
