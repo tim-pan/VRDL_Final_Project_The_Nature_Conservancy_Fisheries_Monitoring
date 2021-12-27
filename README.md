@@ -1,10 +1,8 @@
 # VRDL_Final_Project_The_Nature_Conservancy_Fisheries_Monitoring
-Nuclear segmentation dataset contains 24 training images with 14,598 nuclear and 6 test images with 2,360 nuclear.
-Train an instance segmentation model to detect and segment all the nuclei in the image.
-No external data should be used!
+The given training dataset includes 3777 images, each image contains a certain species of fish, our goal is to train a model which can classify images into the following 8 classes.
 
 ## Coding Environment
-- Jupyter Notebook
+- Google Colab
 
 ## Reproducing Submission
 To reproduct the testing prediction, please follow the steps below:
@@ -14,8 +12,7 @@ To reproduct the testing prediction, please follow the steps below:
 4. [Testing](#testing)
 
 ## Environment
-requirement.txt contains all packages version of Jupyter Notebook
-- notebook 6.1.5  
+- Google Colab
 
 ## Dataset
 - “Transfer_mask_To_json.ipynb” which can transfer mask image file to .json file. 
